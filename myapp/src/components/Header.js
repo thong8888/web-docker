@@ -8,8 +8,8 @@ function Header() {
       <div className="jt-header-top">
         <span>Copyright @J&T Express</span>
         <div className="jt-header-top-right">
-          <span>#J&T Express</span>
-          <span>#Promotion</span>
+          <span>J&T Express</span>
+          <span>Promotion</span>
           <input
             className="jt-header-search"
             type="text"
