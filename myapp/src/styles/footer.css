@@ -1,0 +1,122 @@
+.jt-footer {
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 227 231 / var(--tw-bg-opacity));
+  color: #fff;
+  font-family: "Montserrat", Arial, sans-serif;
+  padding-top: 32px;
+  padding-bottom: 0;
+}
+
+.jt-footer-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 24px 40px;
+  border-bottom: 1px solid #23262b;
+  gap: 32px;
+}
+
+.jt-footer-logo img {
+  height: 48px;
+}
+
+.jt-footer-description,
+p {
+  font-size: small;
+  width: 334px;
+}
+.jt-footer-description,
+a {
+  font-size: 17px;
+}
+.jt-footer-quick,
+.jt-footer-contact,
+.jt-footer-app,
+.jt-footer-description,
+.jt-footer-social {
+  flex: 1;
+  min-width: 180px;
+  text-align: left; /* căn chữ về bên trái */
+}
+
+.jt-footer-quick h4,
+.jt-footer-contact h4,
+.jt-footer-app h4,
+.jt-footer-social h4 {
+  color: #ffe082;
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.jt-footer-quick ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jt-footer-quick ul li {
+  margin-bottom: 8px;
+}
+
+.jt-footer-quick ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.98rem;
+  transition: color 0.2s;
+}
+
+.jt-footer-quick ul li a:hover {
+  color: #e60012;
+}
+
+.jt-footer-contact p,
+.jt-footer-contact a {
+  color: #fff;
+  font-size: 0.98rem;
+  text-decoration: none;
+}
+
+.jt-footer-app-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.jt-footer-app-links img {
+  height: 32px;
+  width: auto;
+  border-radius: 8px;
+  background: #fff;
+  padding: 2px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+.jt-footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.jt-footer-social img {
+  width: 32px;
+  height: 32px;
+  transition: opacity 0.2s;
+  margin-right: 8px;
+}
+
+.jt-footer-social a:hover img {
+  opacity: 0.7;
+}
+
+.jt-footer-bottom {
+  text-align: center;
+  padding: 18px 0 12px 0;
+  font-size: 0.98rem;
+  color: #ffe082;
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 227 231 / var(--tw-bg-opacity));
+}
