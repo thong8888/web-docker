@@ -62,15 +62,38 @@ exports.forgotPassword = async (req, res) => {
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     user.otp = otp;
-    user.otpExpires = Date.now() + 5 * 60 * 1000; // 5 phút
+    user.otpExpires = Date.now() + 5 * 60 * 1000; 
     await user.save();
 
-    await sendEmail(email, "OTP Reset Password", `Mã OTP của bạn là: ${otp}`);
+
+    const htmlTemplate = `
+      <div style="font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9;">
+        <div style="max-width: 600px; margin: auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <div style="background: #4CAF50; color: white; padding: 15px; text-align: center;">
+            <h2>Reset mật khẩu</h2>
+          </div>
+          <div style="padding: 20px; text-align: center;">
+            <p>Xin chào <b>${user.username}</b>,</p>
+            <p>Chúng tôi nhận được yêu cầu reset mật khẩu cho tài khoản của bạn.</p>
+            <p>Vui lòng sử dụng mã OTP bên dưới để xác nhận:</p>
+            <h1 style="color: #4CAF50; letter-spacing: 4px;">${otp}</h1>
+            <p>Mã OTP này sẽ hết hạn trong <b>5 phút</b>.</p>
+            <p style="margin-top: 20px;">Nếu bạn không yêu cầu, hãy bỏ qua email này.</p>
+          </div>
+          <div style="background: #f1f1f1; padding: 15px; text-align: center; font-size: 12px; color: #555;">
+            © ${new Date().getFullYear()} MyShop. All rights reserved.
+          </div>
+        </div>
+      </div>
+    `;
+
+    await sendEmail(email, "OTP Reset Password", htmlTemplate);
     res.json({ message: "OTP đã được gửi vào email" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
+
 
 exports.resetPassword = async (req, res) => {
   try {
