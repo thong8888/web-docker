@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const authRoutes = require("./src/routes/auth");
 
 const app = express();
-
 app.use(express.json());
+
 app.use("/auth", authRoutes);
 
-mongoose.connect("mongodb://localhost:27017/mydb")
+mongoose.connect("mongodb://127.0.0.1:27017/mydb")
   .then(() => console.log("MongoDB connected"))
-  .catch(err => console.log(err));
+  .catch(err => console.error(err));
 
 app.listen(3000, () => console.log("Server running on port 3000"));
