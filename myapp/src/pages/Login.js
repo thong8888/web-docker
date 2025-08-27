@@ -152,7 +152,7 @@ const Login = () => {
                     className="forgot-btn"
                     onClick={() => setShowForgotPassword(true)}
                   >
-                    Quên mật khẩu ?
+                    Quên mật khẩu?
                   </button>
                 </div>
 
