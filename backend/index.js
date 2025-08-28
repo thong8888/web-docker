@@ -1,11 +1,15 @@
-const express = require('express');
+const express = require("express");
+const mongoose = require("mongoose");
+const authRoutes = require("./src/routes/auth");
+require("dotenv").config();
+
 const app = express();
-const PORT = 3001;
+app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('hello hello');
-});
+app.use("/auth", authRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+mongoose.connect("mongodb://127.0.0.1:27017/mydb")
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.error(err));
+
+app.listen(3000, () => console.log("Server running on port 3000"));
